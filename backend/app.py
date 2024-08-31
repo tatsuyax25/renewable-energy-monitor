@@ -1,13 +1,21 @@
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
+import os
 
-app = Flask(__name__, static_folder='../frontend')
+app = Flask(__name__, static_folder='../frontend', static_url_path='')
 CORS(app) # Enable CORS to allow communication with front-end
 
+# Route for serving the index.html (front-end)
 @app.route('/')
 def serve_frontend():
   return send_from_directory(app.static_folder, 'index.html')
 
+# Route for serving the rest of the static files (e.g., CSS, JS)
+@app.route('/<path:path>')
+def serve_static(path):
+  return send_from_directory(app.static_folder, path)
+
+# Route for serving the mock energy data (API)
 @app.route('/api/energy-data', methods=['GET'])
 def get_energy_data():
   # Exaple mock data (replace this with real API later)

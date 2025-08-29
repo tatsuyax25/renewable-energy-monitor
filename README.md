@@ -2,6 +2,8 @@
 
 A real-time renewable energy monitoring dashboard that tracks solar production, energy consumption, carbon footprint, and cost savings.
 
+![Renewable Energy Monitor Dashboard](https://imgur.com/J9u9o8l.png)
+
 ## ✨ Features
 
 - **Real-time monitoring** - Live solar production and consumption data

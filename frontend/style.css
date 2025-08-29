@@ -1,134 +1,167 @@
+/* GLOBAL RESET AND BASE STYLES */
+/* Reset default browser margins and padding for consistent styling */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;  /* Include padding and border in element width/height */
 }
 
+/* Main body styling */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Modern font stack */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient background */
+  min-height: 100vh;  /* Full viewport height minimum */
+  color: #333;  /* Dark gray text color */
 }
 
+/* HEADER SECTION */
+/* Top navigation bar with title and live indicator */
 header {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);  /* Semi-transparent white background */
+  padding: 1rem 2rem;  /* Top/bottom: 1rem, Left/right: 2rem */
+  display: flex;  /* Flexbox layout */
+  justify-content: space-between;  /* Space items apart */
+  align-items: center;  /* Center items vertically */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* Subtle shadow below header */
 }
 
+/* Main title styling */
 h1 {
-  color: #2c3e50;
-  font-size: 1.8rem;
+  color: #2c3e50;  /* Dark blue-gray color */
+  font-size: 1.8rem;  /* Large font size */
 }
 
+/* LIVE DATA INDICATOR */
+/* Shows that data is updating in real-time */
 .real-time-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #27ae60;
-  font-weight: 600;
+  display: flex;  /* Horizontal layout */
+  align-items: center;  /* Center items vertically */
+  gap: 0.5rem;  /* Space between dot and text */
+  color: #27ae60;  /* Green color (indicates "live") */
+  font-weight: 600;  /* Semi-bold text */
 }
 
+/* Animated dot that pulses to show live status */
 .status-dot {
   width: 8px;
   height: 8px;
-  background: #27ae60;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
+  background: #27ae60;  /* Green dot */
+  border-radius: 50%;  /* Make it circular */
+  animation: pulse 2s infinite;  /* Pulse animation, 2 seconds, repeat forever */
 }
 
+/* Keyframe animation for pulsing effect */
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% { opacity: 1; }    /* Fully visible */
+  50% { opacity: 0.5; } /* Half transparent */
+  100% { opacity: 1; }  /* Back to fully visible */
 }
 
+/* MAIN CONTENT AREA */
+/* Container for all dashboard content */
 main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 2rem;  /* Space around content */
+  max-width: 1200px;  /* Maximum width for readability */
+  margin: 0 auto;  /* Center horizontally */
 }
 
+/* METRICS GRID LAYOUT */
+/* Grid container for the 4 metric cards at the top */
 .metrics-grid {
-  display: grid;
+  display: grid;  /* CSS Grid layout */
+  /* Create columns that auto-fit, minimum 200px wide, expand to fill space */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 1rem;  /* Space between grid items */
+  margin-bottom: 2rem;  /* Space below the metrics section */
 }
 
+/* INDIVIDUAL METRIC CARDS */
+/* Cards showing current solar, consumption, net energy, CO2 saved */
 .metric-card {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);  /* Semi-transparent white */
+  padding: 1.5rem;  /* Internal spacing */
+  border-radius: 12px;  /* Rounded corners */
+  text-align: center;  /* Center all text */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);  /* Subtle shadow for depth */
+  transition: transform 0.3s ease;  /* Smooth animation for hover effect */
 }
 
+/* Hover effect: lift card slightly when mouse hovers over it */
 .metric-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px);  /* Move up 5 pixels */
 }
 
+/* Metric card title (e.g., "Current Solar") */
 .metric-card h3 {
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: #7f8c8d;  /* Medium gray */
+  font-size: 0.9rem;  /* Small font size */
+  margin-bottom: 0.5rem;  /* Space below title */
+  text-transform: uppercase;  /* ALL CAPS */
+  letter-spacing: 1px;  /* Space between letters for readability */
 }
 
+/* Large number display (e.g., "245.7") */
 .metric-value {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 0.25rem;
+  font-size: 2rem;  /* Large, prominent number */
+  font-weight: bold;  /* Bold text */
+  color: #2c3e50;  /* Dark blue-gray */
+  margin-bottom: 0.25rem;  /* Small space below number */
 }
 
+/* Unit label (e.g., "kWh", "kg") */
 .metric-unit {
-  color: #95a5a6;
-  font-size: 0.8rem;
+  color: #95a5a6;  /* Light gray */
+  font-size: 0.8rem;  /* Small font size */
 }
 
+/* CHARTS SECTION */
+/* Grid layout for the two charts (Monthly Overview and Weekly Analytics) */
 .charts-section {
-  display: grid;
+  display: grid;  /* CSS Grid layout */
+  /* Create columns that auto-fit, minimum 400px wide (good for charts) */
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
+  gap: 2rem;  /* Space between charts */
 }
 
+/* Individual chart containers */
 .chart-container {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);  /* Semi-transparent white background */
+  padding: 1.5rem;  /* Internal spacing */
+  border-radius: 12px;  /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);  /* Subtle shadow for depth */
 }
 
+/* Chart titles ("Monthly Overview", "Weekly Analytics") */
 .chart-container h2 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  color: #2c3e50;  /* Dark blue-gray */
+  margin-bottom: 1rem;  /* Space below title */
+  font-size: 1.2rem;  /* Medium font size */
 }
 
+/* CHART CANVAS ELEMENTS */
+/* Ensure charts are responsive and fit their containers */
 canvas {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%;  /* Never exceed container width */
+  height: auto;     /* Maintain aspect ratio */
 }
 
+/* RESPONSIVE DESIGN */
+/* Adjustments for mobile devices (screens smaller than 768px) */
 @media (max-width: 768px) {
+  /* Stack header items vertically on mobile */
   header {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    flex-direction: column;  /* Stack title and indicator vertically */
+    gap: 1rem;              /* Space between stacked items */
+    text-align: center;     /* Center align text */
   }
   
+  /* Reduce padding on mobile for more screen space */
   main {
-    padding: 1rem;
+    padding: 1rem;  /* Less padding than desktop (2rem) */
   }
   
+  /* Stack charts vertically on mobile */
   .charts-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;  /* Single column layout */
   }
 }
